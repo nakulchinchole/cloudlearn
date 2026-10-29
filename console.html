@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Console | CloudLearn</title><meta name="description" content="A simulated cloud console showing cache hits, misses, hit ratio and request history for the sample resources."><meta name="theme-color" content="#1F1E1B">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body><a class="skip" href="#main">Skip to content</a><div id="site-header"></div>
+<main id="main">
+<section class="dark"><div class="wrap page-hero"><p class="kicker">Interactive console</p><h1>Send requests. Watch the cache.</h1><p class="lead">Choose a file and send a request. The first request is a miss. Repeats are hits.</p>
+<p class="sim-note">All metrics are simulated in your browser. They are not real AWS or CloudFront data.</p></div>
+<div class="wrap sec" style="padding-top:1rem"><div class="console"><div>
+ <p class="muted" id="al">Choose a file</p><div class="assets" id="assets" role="group" aria-labelledby="al"></div>
+ <div class="cta" style="margin-top:0"><button class="btn" id="send" type="button">Send request</button><button class="btn ghost" id="clear" type="button">Clear cache</button><button class="btn ghost" id="reset" type="button">Reset all</button></div>
+ <p class="verdict" id="verdict" role="status" aria-live="polite">Send a request to begin.</p></div>
+ <div><dl class="stats"><div><dt>Total requests</dt><dd id="sTotal">0</dd></div><div><dt>Cache hits</dt><dd id="sHits">0</dd></div><div><dt>Cache misses</dt><dd id="sMiss">0</dd></div><div><dt>Hit ratio</dt><dd id="sRatio">n/a</dd></div><div><dt>Origin requests</dt><dd id="sOrigin">0</dd></div><div><dt>Files in cache</dt><dd id="sCached">0</dd></div></dl>
+ <h2 style="font-size:1.3rem">Recent activity</h2><ol class="hist" id="hist" aria-label="Recent activity, newest first"></ol></div></div></div></section></main>
+<div id="site-footer"></div><script src="js/common.js"></script><script src="js/sim-core.js"></script><script src="js/data.js"></script><script src="js/console.js"></script></body></html>

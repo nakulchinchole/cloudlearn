@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home | CloudLearn</title><meta name="description" content="CloudLearn is a student resource portal that demonstrates cloud hosting with Amazon S3 and delivery through CloudFront."><meta name="theme-color" content="#1F1E1B">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body><a class="skip" href="#main">Skip to content</a><div id="site-header"></div>
+<main id="main">
+<section class="hero"><div class="wrap hero-grid">
+ <div><p class="kicker">College Cloud Computing project</p>
+ <h1>Study material, <em>delivered from the edge.</em></h1>
+ <p class="lead">CloudLearn is a student resource portal. It shows how files stored in Amazon S3 can reach students quickly and securely through the CloudFront CDN.</p>
+ <div class="cta"><a class="btn" href="resources.html">Browse resources</a><a class="btn ghost" href="architecture.html">See the architecture</a></div></div>
+ <figure><svg class="cloud-art" viewBox="0 0 320 350" role="img" aria-label="Concept: a browser sends an HTTPS request to a CloudFront edge, which reads from a private S3 bucket only on a cache miss">
+  <rect class="box" x="60" y="10" width="200" height="60" rx="6"/><text x="160" y="46" text-anchor="middle">Student browser</text>
+  <path class="wl" d="M160 70V140"/><text class="small" x="172" y="110">HTTPS request</text>
+  <rect class="box hot" x="60" y="140" width="200" height="70" rx="6"/><text class="on-dark" x="160" y="170" text-anchor="middle">CloudFront edge</text><text class="on-dark small" x="160" y="192" text-anchor="middle" style="fill:#F5F1E8">Caches copies</text>
+  <path class="wl" d="M160 210V280"/><text class="small" x="172" y="250">Only on a cache miss</text>
+  <rect class="box" x="60" y="280" width="200" height="60" rx="6"/><text x="160" y="316" text-anchor="middle">Amazon S3 (private)</text></svg>
+ <figcaption class="muted" style="font-size:.85rem;text-align:center">Concept illustration of the delivery flow</figcaption></figure>
+</div></section>
+<section class="sec paper"><div class="wrap"><div class="terms">
+ <article class="rv"><h3>The problem</h3><p>Students need notes and cheat sheets that load fast from anywhere and are not lost when one server fails.</p></article>
+ <article class="rv"><h3>The idea</h3><p>Store files once in S3, let CloudFront keep copies near students, and protect everything with HTTPS.</p></article>
+ <article class="rv"><h3>The result</h3><p>A working portal with real sample PDFs, plus simulators that teach hits, misses and origins.</p></article></div></div></section>
+<section class="sec"><div class="wrap"><div class="section-head"><div><p class="kicker">Selected resources</p><h2>Start with these.</h2></div><a class="btn ghost" href="resources.html">All resources</a></div>
+ <div class="grid3" id="featured"></div></div></section>
+<section class="sec dark"><div class="wrap"><p class="kicker">Try it</p><h2>Watch a cache hit and a cache miss.</h2><p class="lead">The architecture page walks through each request step by step. The console lets you send your own.</p>
+ <div class="cta"><a class="btn" href="architecture.html">How it works</a><a class="btn ghost" href="console.html">Open the console</a></div></div></section></main>
+<div id="site-footer"></div><script src="js/common.js"></script><script src="js/cards.js"></script><script src="js/data.js"></script><script src="js/home.js"></script></body></html>

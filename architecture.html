@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture | CloudLearn</title><meta name="description" content="How a browser, Amazon CloudFront and a private Amazon S3 bucket work together, with an interactive cache hit and miss demonstration."><meta name="theme-color" content="#1F1E1B">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body><a class="skip" href="#main">Skip to content</a><div id="site-header"></div>
+<main id="main">
+<section class="page-hero"><div class="wrap"><p class="kicker">How it works</p><h1>Browser, CDN, bucket.</h1><p class="lead">Every request goes to CloudFront first. S3 is only asked when CloudFront does not already hold the file.</p>
+<div class="flow" aria-label="Request path">
+ <div class="node" id="fB"><b>Browser</b><small>Student</small></div><div class="arrow" id="aBE">HTTPS request</div>
+ <div class="node" id="fE"><b>CloudFront CDN</b><small>Edge cache</small></div><div class="arrow" id="aEO">Origin request (OAC)</div>
+ <div class="node" id="fO"><b>Amazon S3</b><small>Private bucket</small></div></div></div></section>
+<section class="sec paper"><div class="wrap"><p class="kicker">Interactive demonstration</p><h2>Choose what happens.</h2><p class="sim-note">Local simulation. Not connected to AWS and not real CloudFront data.</p>
+ <div class="demo"><div><div class="toggle"><button class="btn" id="pickMiss" type="button" aria-pressed="false">Cache miss</button><button class="btn ghost" id="pickHit" type="button" aria-pressed="false">Cache hit</button><button class="btn ghost" id="replay" type="button">Replay</button></div>
+ <p class="verdict" id="verdict" role="status" aria-live="polite">Pick a cache miss or a cache hit to see the steps.</p></div><ol class="steps-l" id="steps" aria-label="Request steps"><li class="in" style="opacity:1">Choose an outcome on the left.</li></ol></div></div></section>
+<section class="sec"><div class="wrap"><div class="two"><div><p class="kicker">Hit or miss</p><h2>Two outcomes.</h2></div><div class="prose">
+ <p><b>Cache miss.</b> The first time anyone requests a file, the edge has no copy. CloudFront fetches it from S3, keeps a copy and returns it.</p>
+ <p><b>Cache hit.</b> Later requests for the same file are answered by the edge. S3 is not contacted, which reduces waiting and origin traffic.</p>
+ <p>How long a copy stays cached depends on cache settings and TTL. After you upload a changed file, create an invalidation so edges drop old copies.</p></div></div></div></section>
+<section class="sec dark"><div class="wrap"><p class="kicker">Key terms</p><h2>Four ideas to know.</h2><div class="terms">
+ <article><h3>Amazon S3</h3><p>Object storage. Files live in buckets and are private by default. It is the origin that holds the real files.</p></article>
+ <article><h3>CDN</h3><p>A content delivery network keeps copies of files at edge locations near users. CloudFront is the AWS CDN.</p></article>
+ <article><h3>HTTPS</h3><p>HTTP protected by TLS encryption. The default CloudFront domain provides a certificate, so the browser shows a padlock.</p></article>
+ <article><h3>Origin Access Control</h3><p>Lets CloudFront, and only CloudFront, read the private S3 bucket. The bucket never needs to be public.</p></article></div></div></section></main>
+<div id="site-footer"></div><script src="js/common.js"></script><script src="js/architecture.js"></script></body></html>
